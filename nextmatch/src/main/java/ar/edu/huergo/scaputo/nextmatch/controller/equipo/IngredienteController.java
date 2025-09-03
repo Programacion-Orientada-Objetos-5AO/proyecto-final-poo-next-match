@@ -1,4 +1,4 @@
-package ar.edu.huergo.scaputo.nextmatch.controller.plato;
+package ar.edu.huergo.scaputo.nextmatch.controller.equipo;
 
 import java.net.URI;
 import java.util.List;
@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import ar.edu.huergo.scaputo.nextmatch.dto.plato.IngredienteDTO;
-import ar.edu.huergo.scaputo.nextmatch.mapper.plato.IngredienteMapper;
+
+import ar.edu.huergo.scaputo.nextmatch.dto.equipo.IngredienteDTO;
+import ar.edu.huergo.scaputo.nextmatch.mapper.equipo.IngredienteMapper;
 import ar.edu.huergo.scaputo.nextmatch.service.plato.IngredienteService;
 import jakarta.validation.Valid;
 

@@ -2,8 +2,9 @@ package ar.edu.huergo.scaputo.nextmatch.repository.plato;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ar.edu.huergo.scaputo.nextmatch.entity.plato.Plato;
+
+import ar.edu.huergo.scaputo.nextmatch.entity.equipo.Equipo;
 
 @Repository
-public interface PlatoRepository extends JpaRepository<Plato, Long> {
+public interface EquipoRepository extends JpaRepository<Equipo, Long> {
 }

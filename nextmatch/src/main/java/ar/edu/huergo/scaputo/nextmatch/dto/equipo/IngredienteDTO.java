@@ -1,4 +1,4 @@
-package ar.edu.huergo.scaputo.nextmatch.dto.plato;
+package ar.edu.huergo.scaputo.nextmatch.dto.equipo;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

@@ -5,7 +5,7 @@ import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ar.edu.huergo.scaputo.nextmatch.entity.plato.Ingrediente;
+import ar.edu.huergo.scaputo.nextmatch.entity.equipo.Ingrediente;
 import ar.edu.huergo.scaputo.nextmatch.repository.plato.IngredienteRepository;
 import jakarta.persistence.EntityNotFoundException;
 

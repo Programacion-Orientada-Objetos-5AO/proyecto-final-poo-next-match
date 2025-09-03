@@ -1,4 +1,4 @@
-package ar.edu.huergo.scaputo.nextmatch.entity.plato;
+package ar.edu.huergo.scaputo.nextmatch.entity.equipo;
 
 import java.util.List;
 
@@ -21,8 +21,8 @@ import lombok.ToString;
 @Data // Lombok: genera getters, setters, equals, hashCode, toString, requiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(exclude = "platos")
-@ToString(exclude = "platos")
+@EqualsAndHashCode(exclude = "equipos")
+@ToString(exclude = "equipos")
 public class Ingrediente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,5 +33,5 @@ public class Ingrediente {
     private String nombre;
 
     @ManyToMany(mappedBy = "ingredientes")
-    private List<Plato> platos;
+    private List<Equipo> equipos;
 }

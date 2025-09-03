@@ -1,8 +1,9 @@
-package ar.edu.huergo.scaputo.nextmatch.mapper.plato;
+package ar.edu.huergo.scaputo.nextmatch.mapper.equipo;
 
 import org.springframework.stereotype.Component;
-import ar.edu.huergo.scaputo.nextmatch.dto.plato.IngredienteDTO;
-import ar.edu.huergo.scaputo.nextmatch.entity.plato.Ingrediente;
+
+import ar.edu.huergo.scaputo.nextmatch.dto.equipo.IngredienteDTO;
+import ar.edu.huergo.scaputo.nextmatch.entity.equipo.Ingrediente;
 
 import java.util.ArrayList;
 import java.util.List;

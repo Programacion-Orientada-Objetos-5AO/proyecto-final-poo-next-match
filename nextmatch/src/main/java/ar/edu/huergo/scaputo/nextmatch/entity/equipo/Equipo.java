@@ -1,18 +1,11 @@
-package ar.edu.huergo.scaputo.nextmatch.entity.plato;
-
-import java.util.List;
+package ar.edu.huergo.scaputo.nextmatch.entity.equipo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -20,11 +13,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "platos")
+@Table(name = "equipos")
 @Data // Lombok: genera getters, setters, equals, hashCode, toString, requiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
-public class Plato {
+public class Equipo {
     // JPA: clave primaria autogenerada con estrategia IDENTITY
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,16 +32,8 @@ public class Plato {
     // Validación: limita la longitud máxima de la descripción
     @Size(max = 255, message = "La descripción no puede superar 255 caracteres")
     private String descripcion;
-    
+
     // Validación: el precio debe ser mayor a 0
     @Positive(message = "El precio debe ser mayor a 0")
     private double precio;
-
-    @NotNull(message = "Los ingredientes son obligatorios")
-    @NotEmpty(message = "Los ingredientes son obligatorios")
-    @ManyToMany
-    @JoinTable(name = "platos_ingredientes",
-        joinColumns = @JoinColumn(name = "plato_id"),
-        inverseJoinColumns = @JoinColumn(name = "ingrediente_id"))
-    private List<Ingrediente> ingredientes;
 }
