@@ -1,10 +1,10 @@
-package ar.edu.huergo.lcarera.restaurante;
+package ar.edu.huergo.scaputo.sbigliardi.nextmatch;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RestauranteApplicationTests {
+class NextmatchApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,13 +1,13 @@
-package ar.edu.huergo.scaputo.nextmatch;
+package ar.edu.huergo.scaputo.sbigliardi.nextmatch;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RestauranteApplication {
+public class NextmatchApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RestauranteApplication.class, args);
+		SpringApplication.run(NextmatchApplication.class, args);
 	}
 
 }
