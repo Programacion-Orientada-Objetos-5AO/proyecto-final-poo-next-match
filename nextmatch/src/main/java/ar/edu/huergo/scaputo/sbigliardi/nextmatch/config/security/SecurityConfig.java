@@ -18,7 +18,9 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import ar.edu.huergo.scaputo.sbigliardi.nextmatch.repository.security.UsuarioRepository;
 
 @Configuration
@@ -39,9 +41,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/equipo/usuarios/registrar").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/equipo/pedidos").hasRole("CLIENTE")
-                        .requestMatchers(HttpMethod.GET, "/equipo/pedidos/reporte").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET, "/equipo/platos/**")
+                        .requestMatchers(HttpMethod.POST, "/equipo").hasRole("CLIENTE")
+                        .requestMatchers(HttpMethod.GET, "/equipo").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/equipo**")
                         .hasAnyRole("ADMIN", "CLIENTE").requestMatchers("/equipo/**")
                         .hasRole("ADMIN").requestMatchers(HttpMethod.POST, "/equipo/**")
                         .hasRole("ADMIN").requestMatchers(HttpMethod.PUT, "/equipo/**")
