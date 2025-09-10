@@ -3,6 +3,7 @@ package ar.edu.huergo.scaputo.sbigliardi.nextmatch.service.security;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -10,14 +11,15 @@ import ar.edu.huergo.scaputo.sbigliardi.nextmatch.entity.security.Rol;
 import ar.edu.huergo.scaputo.sbigliardi.nextmatch.entity.security.Usuario;
 import ar.edu.huergo.scaputo.sbigliardi.nextmatch.repository.security.RolRepository;
 import ar.edu.huergo.scaputo.sbigliardi.nextmatch.repository.security.UsuarioRepository;
-import lombok.RequiredArgsConstructor;
 
 @Service
-@RequiredArgsConstructor
 public class UsuarioService {
-    private final UsuarioRepository usuarioRepository;
-    private final PasswordEncoder passwordEncoder;
-    private final RolRepository rolRepository;
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private RolRepository rolRepository;
 
     public List<Usuario> getAllUsuarios() {
         return usuarioRepository.findAll();
