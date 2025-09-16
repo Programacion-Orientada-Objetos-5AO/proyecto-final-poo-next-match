@@ -75,5 +75,4 @@ public class EquipoController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
-
 }
