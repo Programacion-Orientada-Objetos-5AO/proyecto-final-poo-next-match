@@ -43,4 +43,5 @@ public class EquipoController {
 
         return ResponseEntity.ok(partido);
     }
+
 }
