@@ -1,41 +1,44 @@
 package ar.edu.huergo.scaputo.sbigliardi.nextmatch.service;
 
-import ar.edu.huergo.scaputo.sbigliardi.nextmatch.entity.Partido;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import ar.edu.huergo.scaputo.sbigliardi.nextmatch.entity.Equipo;
+import ar.edu.huergo.scaputo.sbigliardi.nextmatch.entity.Partido;
 
+@Service
 public class ProximoPartido {
 
-    private final FootballAPIService apiService = new FootballAPIService();
+    private final FootballAPIService apiService;
 
-    public List<Partido> obtenerProximosPartidos(String nombreEquipo, int cantidad) {
-        List<Partido> listaPartidos = new ArrayList<>();
+    public ProximoPartido(FootballAPIService apiService) {
+        this.apiService = apiService;
+    }
 
+    public Partido obtenerProximoPartidoEquipo(Equipo equipo) {
         try {
-            int teamId = apiService.buscarTeamIdPorNombre(nombreEquipo);
-            JSONArray fixtures = apiService.obtenerProximosPartidos(teamId, cantidad);
+            int teamId = equipo.getApiId();
+            JSONArray fixtures = apiService.obtenerProximosPartidos(teamId, 1); // solo el próximo partido
 
-            for (int i = 0; i < fixtures.length(); i++) {
-                JSONObject fixture = fixtures.getJSONObject(i).getJSONObject("fixture");
-                JSONObject equipos = fixtures.getJSONObject(i).getJSONObject("teams");
+            if (fixtures.length() == 0) return null;
 
-                String fecha = fixture.getString("date");
-                String local = equipos.getJSONObject("home").getString("name");
-                String visitante = equipos.getJSONObject("away").getString("name");
-                String estado = fixture.getJSONObject("status").getString("long");
+            JSONObject fixture = fixtures.getJSONObject(0).getJSONObject("fixture");
+            JSONObject equipos = fixtures.getJSONObject(0).getJSONObject("teams");
 
-                listaPartidos.add(new Partido(fecha, local, visitante, estado));
-            }
+            String fecha = fixture.getString("date");
+            String local = equipos.getJSONObject("home").getString("name");
+            String visitante = equipos.getJSONObject("away").getString("name");
+            String estado = fixture.getJSONObject("status").getString("long");
+
+            return new Partido(fecha, local, visitante, estado);
 
         } catch (Exception e) {
             System.err.println("Error obteniendo partidos: " + e.getMessage());
+            return null;
         }
-
-        return listaPartidos;
     }
 }
+
 
 

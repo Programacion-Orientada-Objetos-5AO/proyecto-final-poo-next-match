@@ -1,41 +1,42 @@
 package ar.edu.huergo.scaputo.sbigliardi.nextmatch.service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.stereotype.Service;
 
 import ar.edu.huergo.scaputo.sbigliardi.nextmatch.dto.EquipoDTO;
 import ar.edu.huergo.scaputo.sbigliardi.nextmatch.entity.Equipo;
-import ar.edu.huergo.scaputo.sbigliardi.nextmatch.repository.EquipoRepository;
 
 @Service
 public class EquipoService {
-    @Autowired
-    private EquipoRepository equipoRepository;
+
+    private final List<Equipo> equipos = new ArrayList<>();
+
+    public EquipoService() {
+        // Hardcodeamos 3 equipos con sus apiId (ejemplo)
+        equipos.add(new Equipo("Boca Juniors", 435));
+        equipos.add(new Equipo("River Plate", 436));
+        equipos.add(new Equipo("Racing Club", 437));
+    }
 
     public List<EquipoDTO> getEquipos() {
-        return ((List<Equipo>) this.equipoRepository.findAll()).stream().map(equipo -> new EquipoDTO(equipo.getId(), equipo.getNombre())).toList();
+        List<EquipoDTO> dtoList = new ArrayList<>();
+        for (Equipo e : equipos) {
+            dtoList.add(new EquipoDTO(null, e.getNombre(), e.getApiId()));
+        }
+        return dtoList;
     }
 
-    public Optional<Equipo> getEquipo(Long id) {
-        return this.equipoRepository.findById(id);
+    public Equipo getEquipoPorNombre(String nombre) {
+        return equipos.stream()
+                .filter(e -> e.getNombre().equalsIgnoreCase(nombre))
+                .findFirst()
+                .orElse(null);
     }
 
-    public void crearEquipo(EquipoDTO equipoDto) {
-        this.equipoRepository.save(new Equipo(equipoDto.nombre()));
-    }
-
-    public void actualizarEquipo(Long id, EquipoDTO equipoDto) throws NotFoundException {
-        Equipo equipo = this.equipoRepository.findById(id).orElseThrow(() -> new NotFoundException());
-        equipo.setNombre(equipoDto.nombre());
-        this.equipoRepository.save(equipo);
-    }
-
-    public void eliminarEquipo(Long id) {
-        this.equipoRepository.deleteById(id);
+    public Equipo getEquipoPorId(int index) {
+        if (index < 0 || index >= equipos.size()) return null;
+        return equipos.get(index);
     }
 }
-

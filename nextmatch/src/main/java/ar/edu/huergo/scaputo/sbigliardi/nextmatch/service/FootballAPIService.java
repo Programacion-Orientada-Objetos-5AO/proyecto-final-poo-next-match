@@ -7,7 +7,9 @@ import java.net.http.HttpResponse;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.stereotype.Service;
 
+@Service // <- <--- Esto lo convierte en bean
 public class FootballAPIService {
 
     private static final String API_KEY = "c9ae24e836d3d8248578568d6d68cce7";
