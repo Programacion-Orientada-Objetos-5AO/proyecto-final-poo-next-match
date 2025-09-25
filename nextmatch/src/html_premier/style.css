@@ -1,0 +1,131 @@
+:root {
+  --bg-1: #360D3A;
+  --bg-2: #3D195B;
+  --accent: #FF2882;
+  --glass: rgba(255,255,255,0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  background: linear-gradient(135deg, var(--bg-1), var(--bg-2));
+  padding: 20px;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  background: var(--glass);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.brand h1 {
+  font-size: 1.2rem;
+}
+
+.brand p {
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.league-badge {
+  background: var(--glass);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-weight: bold;
+}
+
+/* Layout */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 20px;
+}
+
+/* Sections */
+section {
+  background: var(--glass);
+  padding: 15px;
+  border-radius: 12px;
+}
+
+h2 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* Equipos */
+.teams ul {
+  list-style: none;
+}
+
+.teams li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Matches */
+.match-card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.match-card span {
+  display: block;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.match-card strong {
+  display: block;
+  margin: 4px 0;
+}
+
+.match-card small {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+/* Stats */
+.stats h3 {
+  margin-top: 12px;
+  font-size: 1rem;
+  color: var(--accent);
+}
+
+.stats ol, .stats ul {
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
