@@ -1,10 +1,13 @@
 package ar.edu.huergo.scaputo.sbigliardi.nextmatch.entity;
 
 public class Partido {
+
     private String fecha;
     private String local;
     private String visitante;
     private String estado;
+
+    public Partido() {}
 
     public Partido(String fecha, String local, String visitante, String estado) {
         this.fecha = fecha;
@@ -13,13 +16,35 @@ public class Partido {
         this.estado = estado;
     }
 
-    public String getFecha() { return fecha; }
-    public String getLocal() { return local; }
-    public String getVisitante() { return visitante; }
-    public String getEstado() { return estado; }
+    public String getFecha() {
+        return fecha;
+    }
 
-    @Override
-    public String toString() {
-        return fecha + ": " + local + " vs " + visitante + " — Estado: " + estado;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getLocal() {
+        return local;
+    }
+
+    public void setLocal(String local) {
+        this.local = local;
+    }
+
+    public String getVisitante() {
+        return visitante;
+    }
+
+    public void setVisitante(String visitante) {
+        this.visitante = visitante;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 }

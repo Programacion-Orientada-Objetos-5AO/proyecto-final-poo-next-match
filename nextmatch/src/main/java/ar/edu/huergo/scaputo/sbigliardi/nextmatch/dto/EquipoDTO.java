@@ -1,24 +1,42 @@
 package ar.edu.huergo.scaputo.sbigliardi.nextmatch.dto;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+@Entity
 public class EquipoDTO {
-
+    @Id
     private Long id;
     private String nombre;
-    private Integer apiId;
+    private int apiId;
 
     public EquipoDTO() {}
 
-    public EquipoDTO(Long id, String nombre, Integer apiId) {
+    public EquipoDTO(Long id, String nombre, int apiId) {
         this.id = id;
         this.nombre = nombre;
         this.apiId = apiId;
     }
 
-    public Long getId() { return id; }
-    public String getNombre() { return nombre; }
-    public Integer getApiId() { return apiId; }
+    public Long getId() {
+        return id;
+    }
 
-    public void setId(Long id) { this.id = id; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
-    public void setApiId(Integer apiId) { this.apiId = apiId; }
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getApiId() {
+        return apiId;
+    }
+
+    public void setApiId(int apiId) {
+        this.apiId = apiId;
+    }
 }

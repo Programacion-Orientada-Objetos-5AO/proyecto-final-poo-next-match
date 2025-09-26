@@ -1,6 +1,10 @@
 package ar.edu.huergo.scaputo.sbigliardi.nextmatch.dto;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+@Entity
 public class PartidoDTO {
+    @Id
+    private Long id;
     private String fecha;
     private String local;
     private String visitante;

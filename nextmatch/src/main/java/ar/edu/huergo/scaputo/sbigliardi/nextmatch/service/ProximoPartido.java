@@ -18,8 +18,7 @@ public class ProximoPartido {
 
     public Partido obtenerProximoPartidoEquipo(Equipo equipo) {
         try {
-            int teamId = equipo.getApiId();
-            JSONArray fixtures = apiService.obtenerProximosPartidos(teamId, 1); // solo el próximo partido
+            JSONArray fixtures = apiService.obtenerProximosPartidos(equipo.getApiId(), 1);
 
             if (fixtures.length() == 0) return null;
 
@@ -39,6 +38,3 @@ public class ProximoPartido {
         }
     }
 }
-
-
-

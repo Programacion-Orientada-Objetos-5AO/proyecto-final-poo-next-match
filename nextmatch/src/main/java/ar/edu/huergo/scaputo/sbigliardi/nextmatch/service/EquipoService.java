@@ -14,29 +14,25 @@ public class EquipoService {
     private final List<Equipo> equipos = new ArrayList<>();
 
     public EquipoService() {
-        // Hardcodeamos 3 equipos con sus apiId (ejemplo)
-        equipos.add(new Equipo("Boca Juniors", 435));
-        equipos.add(new Equipo("River Plate", 436));
-        equipos.add(new Equipo("Racing Club", 437));
+        // Hardcodeamos 3 equipos
+        equipos.add(new Equipo(1L, "Boca Juniors", 435));
+        equipos.add(new Equipo(2L, "River Plate", 436));
+        equipos.add(new Equipo(3L, "Racing Club", 437));
     }
 
     public List<EquipoDTO> getEquipos() {
         List<EquipoDTO> dtoList = new ArrayList<>();
         for (Equipo e : equipos) {
-            dtoList.add(new EquipoDTO(null, e.getNombre(), e.getApiId()));
+            dtoList.add(new EquipoDTO(e.getId(), e.getNombre(), e.getApiId()));
         }
         return dtoList;
     }
 
-    public Equipo getEquipoPorNombre(String nombre) {
+    public Equipo getEquipoPorId(Long id) {
         return equipos.stream()
-                .filter(e -> e.getNombre().equalsIgnoreCase(nombre))
+                .filter(e -> e.getId().equals(id))
                 .findFirst()
                 .orElse(null);
     }
-
-    public Equipo getEquipoPorId(int index) {
-        if (index < 0 || index >= equipos.size()) return null;
-        return equipos.get(index);
-    }
 }
+
