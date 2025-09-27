@@ -14,7 +14,6 @@ public class EquipoService {
     private final List<Equipo> equipos = new ArrayList<>();
 
     public EquipoService() {
-        // Hardcodeamos 3 equipos
         equipos.add(new Equipo(1L, "Boca Juniors", 435));
         equipos.add(new Equipo(2L, "River Plate", 436));
         equipos.add(new Equipo(3L, "Racing Club", 437));
