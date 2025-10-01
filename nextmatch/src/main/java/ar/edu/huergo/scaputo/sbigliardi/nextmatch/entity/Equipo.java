@@ -1,7 +1,14 @@
 package ar.edu.huergo.scaputo.sbigliardi.nextmatch.entity;
 
-public class Equipo {
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 
+@Entity
+public class Equipo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
     private int apiId; // ID que usa la API externa
