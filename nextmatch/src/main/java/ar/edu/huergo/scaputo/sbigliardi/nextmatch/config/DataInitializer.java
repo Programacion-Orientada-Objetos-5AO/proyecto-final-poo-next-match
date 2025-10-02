@@ -1,4 +1,4 @@
-package ar.edu.huergo.scaputo.sbigliardi.nextmatch.config;
+ package ar.edu.huergo.scaputo.sbigliardi.nextmatch.config;
 
 import java.util.Set;
 
