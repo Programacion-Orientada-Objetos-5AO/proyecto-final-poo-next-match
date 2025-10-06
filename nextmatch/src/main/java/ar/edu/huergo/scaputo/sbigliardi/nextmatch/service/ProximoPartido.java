@@ -18,7 +18,7 @@ public class ProximoPartido {
 
     public Partido obtenerProximoPartidoEquipo(Equipo equipo) {
         try {
-            JSONArray fixtures = apiService.obtenerProximosPartidos(equipo.getApiId(), 1);
+            
 
             if (fixtures.length() == 0) return null;
 
