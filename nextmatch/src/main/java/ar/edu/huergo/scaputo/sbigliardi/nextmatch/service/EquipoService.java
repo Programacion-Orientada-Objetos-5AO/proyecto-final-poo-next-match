@@ -14,15 +14,15 @@ public class EquipoService {
     private final List<Equipo> equipos = new ArrayList<>();
 
     public EquipoService() {
-        equipos.add(new Equipo(1L, "Boca Juniors");
-        equipos.add(new Equipo(2L, "River Plate");
-        equipos.add(new Equipo(3L, "Racing Club");
+        equipos.add(new Equipo(1L, "Boca Juniors"));
+        equipos.add(new Equipo(2L, "River Plate"));
+        equipos.add(new Equipo(3L, "Racing Club"));
     }
 
     public List<EquipoDTO> getEquipos() {
         List<EquipoDTO> dtoList = new ArrayList<>();
         for (Equipo e : equipos) {
-            dtoList.add(new EquipoDTO(e.getId(), e.getNombre());
+            dtoList.add(new EquipoDTO(e.getId(), e.getNombre()));
         }
         return dtoList;
     }
