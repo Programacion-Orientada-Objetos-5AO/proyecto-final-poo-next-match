@@ -8,7 +8,7 @@ public class EquipoMapper {
     public static EquipoDTO toDTO(Equipo equipo) {
         return new EquipoDTO(
                 equipo.getId(),
-                equipo.getNombre()
+                equipo.getNombre(),
                 equipo.getApiId()
         );
     }
@@ -16,7 +16,7 @@ public class EquipoMapper {
     public static Equipo toEntity(EquipoDTO dto) {
         return new Equipo(
                 dto.getId(),
-                dto.getNombre()
+                dto.getNombre(),
                 dto.getApiId()
         );
     }
