@@ -4,20 +4,23 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
-@Service
+import ar.edu.huergo.scaputo.sbigliardi.nextmatch.dto.FootballAPIDTO;
 
+@Service
 public class FootballAPIService {
 
-    private static final String API_KEY = "c9ae24e836d3d8248578568d6d68cce7"; 
-    private static final String BASE_URL = "https://v3.football.api-sports.io/teams?name=";
+    private static final String API_KEY = "c9ae24e836d3d8248578568d6d68cce7";
+    private static final String BASE_URL = "https://v3.football.api-sports.io/";
 
-    public JSONArray obtenerProximosPartidos(int teamId, int cantidad) throws Exception {
-        String url = BASE_URL + "?team=" + teamId + "&next=" + cantidad;
+    public List<FootballAPIDTO> obtenerEquiposPorNombre(String nombreEquipo) throws Exception {
+        String url = BASE_URL + "teams?name=" + nombreEquipo;
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
@@ -29,6 +32,30 @@ public class FootballAPIService {
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 
         JSONObject json = new JSONObject(response.body());
-        return json.getJSONArray("response");
+        JSONArray equiposArray = json.getJSONArray("response");
+
+        List<FootballAPIDTO> equipos = new ArrayList<>();
+
+        for (int i = 0; i < equiposArray.length(); i++) {
+            JSONObject equipoObj = equiposArray.getJSONObject(i).getJSONObject("team");
+            JSONObject estadioObj = equiposArray.getJSONObject(i).getJSONObject("venue");
+
+            FootballAPIDTO dto = new FootballAPIDTO();
+            dto.setId(equipoObj.getInt("id"));
+            dto.setName(equipoObj.getString("name"));
+            dto.setCountry(equipoObj.getString("country"));
+            dto.setFounded(equipoObj.getInt("founded"));
+            dto.setLogo(equipoObj.getString("logo"));
+
+            dto.setVenueName(estadioObj.getString("name"));
+            dto.setVenueSurface(estadioObj.optString("surface", "N/A"));
+            dto.setVenueAddress(estadioObj.optString("address", "N/A"));
+            dto.setVenueCity(estadioObj.optString("city", "N/A"));
+            dto.setVenueCapacity(estadioObj.optInt("capacity", 0));
+
+            equipos.add(dto);
+        }
+
+        return equipos;
     }
 }
