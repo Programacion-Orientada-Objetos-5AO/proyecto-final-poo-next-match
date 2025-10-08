@@ -9,6 +9,7 @@ public class EquipoMapper {
         return new EquipoDTO(
                 equipo.getId(),
                 equipo.getNombre()
+                equipo.getApiId()
         );
     }
 
@@ -16,6 +17,7 @@ public class EquipoMapper {
         return new Equipo(
                 dto.getId(),
                 dto.getNombre()
+                dto.getApiId()
         );
     }
 }

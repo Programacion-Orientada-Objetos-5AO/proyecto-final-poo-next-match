@@ -33,6 +33,6 @@ public class EquipoController {
         if (equipo == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(new EquipoDTO(equipo.getId(), equipo.getNombre()));
+        return ResponseEntity.ok(new EquipoDTO(equipo.getId(), equipo.getNombre(), equipo.getApiId()));
     }
 }

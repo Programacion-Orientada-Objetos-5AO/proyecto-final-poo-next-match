@@ -6,13 +6,14 @@ public class EquipoDTO {
     @Id
     private Long id;
     private String nombre;
-    
+    private int apiId;
 
     public EquipoDTO() {}
 
-    public EquipoDTO(Long id, String nombre) {
+    public EquipoDTO(Long id, String nombre, int apiId) {
         this.id = id;
         this.nombre = nombre;
+        this.apiId = apiId;
     }
 
     public Long getId() {
@@ -31,4 +32,13 @@ public class EquipoDTO {
         this.nombre = nombre;
     }
 
+    public int getApiId() {
+        return apiId;
+    }
+
+    public void setApiId(int apiId) {
+        this.apiId = apiId;
+    }
+
 }
+

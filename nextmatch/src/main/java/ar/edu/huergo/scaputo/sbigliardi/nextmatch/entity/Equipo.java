@@ -11,16 +11,20 @@ public class Equipo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
+    private int apiId; // ID que usa la API externa
+
     public Equipo() {}
 
-    public Equipo(Long id, String nombre) {
+    public Equipo(Long id, String nombre, int apiId) {
         this.id = id;
         this.nombre = nombre;
+        this.apiId = apiId;
   
     }
 
     public Equipo(String nombre, int apiId) {
         this.nombre = nombre;
+        this.apiId = apiId;
    
     }
 
@@ -38,5 +42,13 @@ public class Equipo {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public int getApiId() {
+        return apiId;
+    }
+
+    public void setApiId(int apiId) {
+        this.apiId = apiId;
     }
 }
