@@ -1,9 +1,11 @@
 package ar.edu.huergo.scaputo.sbigliardi.nextmatch.service;
 
 import java.net.URI;
+import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +22,8 @@ public class FootballAPIService {
     private static final String BASE_URL = "https://v3.football.api-sports.io/";
 
     public List<FootballAPIDTO> obtenerEquiposPorNombre(String nombreEquipo) throws Exception {
-        String url = BASE_URL + "teams?name=" + nombreEquipo;
+        String nombreCodificado = URLEncoder.encode(nombreEquipo, StandardCharsets.UTF_8);
+        String url = BASE_URL + "teams?name=" + nombreCodificado;
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
@@ -59,3 +62,4 @@ public class FootballAPIService {
         return equipos;
     }
 }
+
