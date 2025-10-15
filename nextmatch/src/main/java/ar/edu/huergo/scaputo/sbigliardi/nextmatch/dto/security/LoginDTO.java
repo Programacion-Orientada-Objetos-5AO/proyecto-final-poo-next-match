@@ -11,4 +11,4 @@ public record LoginDTO(
         @NotBlank(message = "La contraseña es requerida") 
         @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{16,}$", message = "La contraseña debe tener al menos 16 caracteres, una mayúscula, una minúscula, un número y un carácter especial")
         String password) {
-} dante nos cojemos a tu ghermana
+}

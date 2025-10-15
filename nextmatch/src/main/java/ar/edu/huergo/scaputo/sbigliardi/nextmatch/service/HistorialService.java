@@ -43,8 +43,6 @@ public class HistorialService {
 
         return arr.getJSONObject(0).getJSONObject("team").getInt("id");
     }
-
-    // 🔹 Obtiene el historial (head-to-head) entre dos equipos
     public Map<String, Object> obtenerHistorialEntreEquipos(String equipo1, String equipo2) throws Exception {
         int id1 = obtenerIdEquipo(equipo1);
         int id2 = obtenerIdEquipo(equipo2);
