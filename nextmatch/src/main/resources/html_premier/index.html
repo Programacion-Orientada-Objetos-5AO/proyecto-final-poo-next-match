@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Información de Equipos y Historial</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Next Match</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Información de Equipos y Historiales</h1>
+  <div class="container">
+    <!-- Título centrado -->
+    <header>
+      <h1>Next Match</h1>
+    </header>
 
-        <div class="buttons">
-            <button id="equipoButton">Equipo</button>
-            <button id="historialButton">Historiales</button>
-        </div>
+    <!-- Sección de Historial y Equipo -->
+    <main>
+      <section class="historial" id="historial">
+        <h2>Historial</h2>
+        <label for="team1">Equipo 1:</label>
+        <input type="text" id="team1" placeholder="Nombre del primer equipo">
+        <label for="team2">Equipo 2:</label>
+        <input type="text" id="team2" placeholder="Nombre del segundo equipo">
+        <button onclick="buscarHistorial()">Buscar Historial</button>
+        <div id="resultados-historial"></div>
+      </section>
 
-        <div id="equipoSection" class="section">
-            <h2>Buscar Equipo</h2>
-            <input type="text" id="equipoInput" placeholder="Escribe el nombre del equipo">
-            <button onclick="buscarEquipo()">Buscar</button>
-            <p id="equipoInfo"></p>
-        </div>
+      <section class="team" id="team">
+        <h2>Equipo</h2>
+        <label for="single-team">Equipo:</label>
+        <input type="text" id="single-team" placeholder="Nombre del equipo">
+        <button onclick="buscarEquipo()">Buscar Equipo</button>
+        <div id="resultados-equipo"></div>
+      </section>
+    </main>
+  </div>
 
-        <div id="historialSection" class="section" style="display:none;">
-            <h2>Buscar Historial entre Equipos</h2>
-            <input type="text" id="equipo1Input" placeholder="Primer equipo">
-            <input type="text" id="equipo2Input" placeholder="Segundo equipo">
-            <button onclick="buscarHistorial()">Buscar</button>
-            <p id="historialInfo"></p>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
