@@ -1,6 +1,5 @@
 package ar.edu.huergo.scaputo.sbigliardi.nextmatch.service;
 
-
 import java.net.URI;
 import java.net.URLEncoder;
 import java.net.http.HttpClient;
@@ -43,6 +42,7 @@ public class HistorialService {
 
         return arr.getJSONObject(0).getJSONObject("team").getInt("id");
     }
+
     public Map<String, Object> obtenerHistorialEntreEquipos(String equipo1, String equipo2) throws Exception {
         int id1 = obtenerIdEquipo(equipo1);
         int id2 = obtenerIdEquipo(equipo2);
@@ -69,12 +69,23 @@ public class HistorialService {
             JSONObject home = fixture.getJSONObject("home");
             JSONObject away = fixture.getJSONObject("away");
 
+            int idHome = home.getInt("id");
+            int idAway = away.getInt("id");
+
             Boolean winnerHome = home.isNull("winner") ? null : home.getBoolean("winner");
             Boolean winnerAway = away.isNull("winner") ? null : away.getBoolean("winner");
 
-            if (Boolean.TRUE.equals(winnerHome)) ganados1++;
-            else if (Boolean.TRUE.equals(winnerAway)) ganados2++;
-            else empatados++;
+            if (winnerHome != null && winnerHome) {
+                // Ganó el equipo local
+                if (idHome == id1) ganados1++;
+                else if (idHome == id2) ganados2++;
+            } else if (winnerAway != null && winnerAway) {
+                // Ganó el visitante
+                if (idAway == id1) ganados1++;
+                else if (idAway == id2) ganados2++;
+            } else {
+                empatados++;
+            }
         }
 
         Map<String, Object> resultado = new HashMap<>();
@@ -87,3 +98,4 @@ public class HistorialService {
         return resultado;
     }
 }
+
