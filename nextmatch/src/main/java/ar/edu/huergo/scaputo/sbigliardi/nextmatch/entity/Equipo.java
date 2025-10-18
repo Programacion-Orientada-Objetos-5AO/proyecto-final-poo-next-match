@@ -1,54 +1,30 @@
 package ar.edu.huergo.scaputo.sbigliardi.nextmatch.entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 
 @Entity
+@Table(name = "equipos")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Equipo {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
+
     private String nombre;
-    private int apiId; // ID que usa la API externa
-
-    public Equipo() {}
-
-    public Equipo(Long id, String nombre, int apiId) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apiId = apiId;
-  
-    }
-
-    public Equipo(String nombre, int apiId) {
-        this.nombre = nombre;
-        this.apiId = apiId;
-   
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getApiId() {
-        return apiId;
-    }
-
-    public void setApiId(int apiId) {
-        this.apiId = apiId;
-    }
+    private String pais;
+    private int fundacion;
+    private String logo;
+    private String estadio;
+    private String direccionEstadio;
+    private String ciudad;
+    private int capacidadEstadio;
 }

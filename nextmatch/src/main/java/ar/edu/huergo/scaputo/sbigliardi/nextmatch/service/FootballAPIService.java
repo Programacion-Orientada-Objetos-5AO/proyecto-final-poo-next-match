@@ -45,16 +45,15 @@ public class FootballAPIService {
 
             FootballAPIDTO dto = new FootballAPIDTO();
             dto.setId(equipoObj.getInt("id"));
-            dto.setName(equipoObj.getString("name"));
-            dto.setCountry(equipoObj.getString("country"));
-            dto.setFounded(equipoObj.getInt("founded"));
+            dto.setNombre(equipoObj.getString("name"));
+            dto.setPais(equipoObj.getString("country"));
+            dto.setFundacion(equipoObj.getInt("founded"));
             dto.setLogo(equipoObj.getString("logo"));
 
-            dto.setVenueName(estadioObj.getString("name"));
-            dto.setVenueSurface(estadioObj.optString("surface", "N/A"));
-            dto.setVenueAddress(estadioObj.optString("address", "N/A"));
-            dto.setVenueCity(estadioObj.optString("city", "N/A"));
-            dto.setVenueCapacity(estadioObj.optInt("capacity", 0));
+            dto.setEstadio(estadioObj.getString("name"));
+            dto.setDireccionEstadio(estadioObj.optString("address", "N/A"));
+            dto.setCiudad(estadioObj.optString("city", "N/A"));
+            dto.setCapacidadEstadio(estadioObj.optInt("capacity", 0));
 
             equipos.add(dto);
         }
