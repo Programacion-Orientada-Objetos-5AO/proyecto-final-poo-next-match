@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ar.edu.huergo.scaputo.sbigliardi.nextmatch.service.HistorialService;
 
 @RestController
-@RequestMapping("/api/football")
+@RequestMapping("/api")
 public class HistorialController {
 
     @Autowired

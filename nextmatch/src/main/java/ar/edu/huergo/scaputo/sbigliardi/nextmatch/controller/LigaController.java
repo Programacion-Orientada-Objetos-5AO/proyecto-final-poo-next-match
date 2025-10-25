@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ar.edu.huergo.scaputo.sbigliardi.nextmatch.service.LigaService;
 
 @RestController
-@RequestMapping("/api/football")
+@RequestMapping("/api")
 public class LigaController {
 
     @Autowired
