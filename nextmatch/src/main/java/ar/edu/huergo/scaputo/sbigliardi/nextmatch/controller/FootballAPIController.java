@@ -9,24 +9,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import ar.edu.huergo.scaputo.sbigliardi.nextmatch.dto.FootballAPIDTO;
-import ar.edu.huergo.scaputo.sbigliardi.nextmatch.service.FootballAPIService;
+import ar.edu.huergo.scaputo.sbigliardi.nextmatch.dto.EquipoDTO;
+import ar.edu.huergo.scaputo.sbigliardi.nextmatch.service.EquipoService;
 
 @RestController
 @RequestMapping("/api")
 public class FootballAPIController {
 
     @Autowired
-    private FootballAPIService footballAPIService;
+    private EquipoService footballAPIService;
 
     /**
      * Endpoint para buscar equipos por nombre.
      * Ejemplo: GET http://localhost:8080/api/football/equipos?nombre=Barcelona
      */
     @GetMapping("/equipos")
-    public ResponseEntity<List<FootballAPIDTO>> obtenerEquipos(@RequestParam String nombre) {
+    public ResponseEntity<List<EquipoDTO>> obtenerEquipos(@RequestParam String nombre) {
         try {
-            List<FootballAPIDTO> equipos = footballAPIService.obtenerEquiposPorNombre(nombre);
+            List<EquipoDTO> equipos = footballAPIService.obtenerEquiposPorNombre(nombre);
             if (equipos.isEmpty()) {
                 return ResponseEntity.noContent().build();
             }

@@ -1,13 +1,13 @@
 package ar.edu.huergo.scaputo.sbigliardi.nextmatch.mapper;
 
 import org.springframework.stereotype.Component;
-import ar.edu.huergo.scaputo.sbigliardi.nextmatch.dto.FootballAPIDTO;
+import ar.edu.huergo.scaputo.sbigliardi.nextmatch.dto.EquipoDTO;
 import ar.edu.huergo.scaputo.sbigliardi.nextmatch.entity.Equipo;
 
 @Component
 public class FootballMapper {
 
-    public Equipo toEntity(FootballAPIDTO dto) {
+    public Equipo toEntity(EquipoDTO dto) {
         if (dto == null) return null;
 
         Equipo e = new Equipo();
@@ -23,10 +23,10 @@ public class FootballMapper {
         return e;
     }
 
-    public FootballAPIDTO toDto(Equipo e) {
+    public EquipoDTO toDto(Equipo e) {
         if (e == null) return null;
 
-        FootballAPIDTO dto = new FootballAPIDTO();
+        EquipoDTO dto = new EquipoDTO();
         dto.setId(e.getId());
         dto.setNombre(e.getNombre());
         dto.setPais(e.getPais());

@@ -13,15 +13,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
-import ar.edu.huergo.scaputo.sbigliardi.nextmatch.dto.FootballAPIDTO;
+import ar.edu.huergo.scaputo.sbigliardi.nextmatch.dto.EquipoDTO;
 
 @Service
-public class FootballAPIService {
+public class EquipoService {
 
     private static final String API_KEY = "c9ae24e836d3d8248578568d6d68cce7";
     private static final String BASE_URL = "https://v3.football.api-sports.io/";
 
-    public List<FootballAPIDTO> obtenerEquiposPorNombre(String nombreEquipo) throws Exception {
+    public List<EquipoDTO> obtenerEquiposPorNombre(String nombreEquipo) throws Exception {
         String nombreCodificado = URLEncoder.encode(nombreEquipo, StandardCharsets.UTF_8);
         String url = BASE_URL + "teams?name=" + nombreCodificado;
 
@@ -37,13 +37,13 @@ public class FootballAPIService {
         JSONObject json = new JSONObject(response.body());
         JSONArray equiposArray = json.getJSONArray("response");
 
-        List<FootballAPIDTO> equipos = new ArrayList<>();
+        List<EquipoDTO> equipos = new ArrayList<>();
 
         for (int i = 0; i < equiposArray.length(); i++) {
             JSONObject equipoObj = equiposArray.getJSONObject(i).getJSONObject("team");
             JSONObject estadioObj = equiposArray.getJSONObject(i).getJSONObject("venue");
 
-            FootballAPIDTO dto = new FootballAPIDTO();
+            EquipoDTO dto = new EquipoDTO();
             dto.setId(equipoObj.getInt("id"));
             dto.setNombre(equipoObj.getString("name"));
             dto.setPais(equipoObj.getString("country"));
