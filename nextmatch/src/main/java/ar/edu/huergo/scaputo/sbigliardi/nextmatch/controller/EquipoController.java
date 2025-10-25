@@ -14,7 +14,7 @@ import ar.edu.huergo.scaputo.sbigliardi.nextmatch.service.EquipoService;
 
 @RestController
 @RequestMapping("/api")
-public class FootballAPIController {
+public class EquipoController {
 
     @Autowired
     private EquipoService footballAPIService;
