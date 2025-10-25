@@ -7,5 +7,5 @@ import java.util.Optional;
 
 @Repository
 public interface TecnicoRepository extends JpaRepository<Tecnico, Long> {
-    Optional<Tecnico> findByNombreIgnoreCase(String nombre);
+    Optional<Tecnico> buscarTecnico(String nombre);
 }

@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface HistorialRepository extends JpaRepository<Historial, Long> {
-    Optional<Historial> findByEquipo1AndEquipo2(String equipo1, String equipo2);
+    Optional<Historial> buscarHistorial(String equipo1, String equipo2);
 }
