@@ -9,6 +9,6 @@ import ar.edu.huergo.scaputo.sbigliardi.nextmatch.entity.Liga;
 
 @Repository
 public interface LigaRepository extends JpaRepository<Liga, Long> {
-    Optional<Liga> buscarLiga(String nombre, int temporada);
+  
 }
 
