@@ -6,6 +6,9 @@
 - [x] EquipoRepositoryTest - Pruebas de integración para EquipoRepository usando @DataJpaTest
 - [x] UsuarioControllerTest - Pruebas unitarias para UsuarioController usando @WebMvcTest
 - [x] UsuarioServiceTest - Pruebas unitarias para UsuarioService usando Mockito
+- [x] LigaServiceTest - Pruebas unitarias para LigaService usando Mockito
+- [x] TecnicoServiceTest - Pruebas unitarias para TecnicoService usando Mockito
+- [x] EstadisticaServiceTest - Pruebas unitarias para EstadisticaService usando Mockito
 
 ## Tests Pendientes
 - [ ] UsuarioRepositoryTest - Pruebas para UsuarioRepository
