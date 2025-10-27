@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Next Match</title>
-  <link rel="stylesheet" href="style.css" />
+  <title th:text="${titulo} + ' - Next Match'">Next Match</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
   <div class="app-container">
     <!-- HEADER -->
     <header class="hero">
-      <h1>Next Match</h1>
+      <h1 th:text="${titulo}">Next Match</h1>
       <p>Explorá estadísticas, historiales y datos de tus equipos favoritos</p>
     </header>
 
