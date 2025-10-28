@@ -21,7 +21,7 @@ class TecnicoServiceTest {
     @Test
     void testObtenerTecnicoPorNombre_ValidName_ReturnsList() throws Exception {
         // Given
-        String nombreTecnico = "Pep Guardiola";
+        String nombreTecnico = "Guardiola";
 
         // When
         List<TecnicoDTO> result = tecnicoService.obtenerTecnicoPorNombre(nombreTecnico);

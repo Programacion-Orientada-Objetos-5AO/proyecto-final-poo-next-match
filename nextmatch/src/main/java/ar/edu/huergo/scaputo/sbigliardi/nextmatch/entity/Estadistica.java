@@ -26,4 +26,10 @@ public class Estadistica {
 
     private int golesAFavor;
     private int golesEnContra;
+    public Estadistica(String nombreEquipo, String nombreLiga, int temporada) {
+        this.nombreEquipo = nombreEquipo;
+        this.nombreLiga = nombreLiga;
+        this.temporada = temporada;
+    }
+    
 }

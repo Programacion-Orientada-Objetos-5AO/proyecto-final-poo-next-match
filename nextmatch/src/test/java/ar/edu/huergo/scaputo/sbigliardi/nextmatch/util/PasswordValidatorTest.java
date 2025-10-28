@@ -9,13 +9,13 @@ class PasswordValidatorTest {
     @Test
     void testIsValid_ValidPassword_ReturnsTrue() {
         // Given
-        String validPassword = "ValidPassword123!";
+        String validPassword = "ValidPassword123!X"; // 17 caracteres
 
         // When
         boolean result = PasswordValidator.isValid(validPassword);
 
         // Then
-        assertFalse(result); // Note: The pattern requires at least 16 characters
+        assertTrue(result); // ahora sí debe ser válido
     }
 
     @Test

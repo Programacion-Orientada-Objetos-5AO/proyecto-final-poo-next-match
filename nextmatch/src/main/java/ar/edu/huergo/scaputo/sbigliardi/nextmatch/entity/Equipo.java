@@ -27,4 +27,8 @@ public class Equipo {
     private String direccionEstadio;
     private String ciudad;
     private int capacidadEstadio;
+
+    public Equipo(String nombre) {
+        this.nombre = nombre;
+    }
 }

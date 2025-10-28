@@ -8,5 +8,6 @@ import ar.edu.huergo.scaputo.sbigliardi.nextmatch.entity.Estadistica;
 @Repository
 public interface EstadisticaRepository extends JpaRepository<Estadistica, Long> {
 
+    public Estadistica findByNombreEquipoAndNombreLigaAndTemporada(String nombreEquipo, String nombreLiga, int temporada);
  
 }

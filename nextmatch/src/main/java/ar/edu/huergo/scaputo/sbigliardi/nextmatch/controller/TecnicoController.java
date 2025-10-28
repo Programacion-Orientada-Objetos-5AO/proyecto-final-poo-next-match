@@ -15,7 +15,9 @@ public class TecnicoController {
 
     @Autowired
     private TecnicoService tecnicoService;
-
+    /**
+     * GET http://localhost:8080/api/tecnico?nombre=guardiola
+     */
     @GetMapping
     public ResponseEntity<?> buscarPorNombre(@RequestParam String nombre) {
         try {

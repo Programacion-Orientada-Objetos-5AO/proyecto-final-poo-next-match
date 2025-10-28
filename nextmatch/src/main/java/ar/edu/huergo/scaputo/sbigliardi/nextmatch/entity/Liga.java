@@ -31,7 +31,7 @@ public class Liga {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int leagueId; // ID real de la API
+    private int leagueId;
     private String nombre;
     private int temporada;
 
@@ -39,4 +39,11 @@ public class Liga {
     @CollectionTable(name = "liga_equipos", joinColumns = @JoinColumn(name = "liga_id"))
     @Column(name = "equipo")
     private List<String> equipos;
+
+    public Liga(int leagueId, String nombre, int temporada) {
+        this.leagueId = leagueId;
+        this.nombre = nombre;
+        this.temporada = temporada;
+    }
+    
 }

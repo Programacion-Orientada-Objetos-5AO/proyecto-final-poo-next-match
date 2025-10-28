@@ -19,8 +19,8 @@ class HistorialServiceTest {
     @Test
     void testObtenerHistorialEntreEquipos_ValidTeams_ReturnsMap() throws Exception {
         // Given
-        String equipo1 = "Boca Juniors";
-        String equipo2 = "River Plate";
+        String equipo1 = "liverpool";
+        String equipo2 = "barcelona";
 
         // When
         Map<String, Object> result = historialService.obtenerHistorialEntreEquipos(equipo1, equipo2);
@@ -38,7 +38,7 @@ class HistorialServiceTest {
     void testObtenerHistorialEntreEquipos_InvalidTeam_ThrowsException() {
         // Given
         String equipo1 = "EquipoInexistente";
-        String equipo2 = "River Plate";
+        String equipo2 = "barcelona";
 
         // When & Then
         assertThrows(Exception.class, () -> {

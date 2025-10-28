@@ -17,6 +17,10 @@ public class HistorialController {
 
     @Autowired
     private HistorialService HistorialService;
+
+    /**
+     * GET http://localhost:8080/api/h2h?equipo1=manchester united&equipo2=liverpool
+     */
     @GetMapping("/h2h")
     public ResponseEntity<Map<String, Object>> obtenerHistorialEntreEquipos(
             @RequestParam String equipo1,

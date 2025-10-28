@@ -25,4 +25,9 @@ public class Tecnico {
 
     @Column
     private String nacionalidad;
+
+    public Tecnico(String nombre) {
+        this.nombre = nombre;
+    }
+    
 }

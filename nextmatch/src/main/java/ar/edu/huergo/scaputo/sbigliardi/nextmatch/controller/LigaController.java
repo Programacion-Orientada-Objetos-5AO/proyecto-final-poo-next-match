@@ -17,7 +17,9 @@ public class LigaController {
 
     @Autowired
     private LigaService ligaService;
-
+    /**
+     * GET http://localhost:8080/api/liga?nombre=la liga&temporada=2022&pais=Spain
+     */
     @GetMapping("/liga")
     public ResponseEntity<Map<String, Object>> obtenerEquiposPorLiga(
             @RequestParam String nombre,

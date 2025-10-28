@@ -23,9 +23,6 @@ public class LigaService {
 
     private final HttpClient client = HttpClient.newHttpClient();
 
-    /**
-     * 🔹 Obtiene el ID de la liga según el nombre, temporada y país.
-     */
     private int obtenerIdLiga(String nombreLiga, int temporada, String pais) throws Exception {
         String nombreCodificado = URLEncoder.encode(nombreLiga, StandardCharsets.UTF_8);
         String paisCodificado = URLEncoder.encode(pais, StandardCharsets.UTF_8);
@@ -49,7 +46,7 @@ public class LigaService {
         JSONArray arr = json.getJSONArray("response");
 
         if (arr.isEmpty()) {
-            throw new RuntimeException("⚠️ No se encontró la liga '" + nombreLiga + "' en " + pais + " para la temporada " + temporada);
+            throw new RuntimeException("No se encontró la liga '" + nombreLiga + "' en " + pais + " para la temporada " + temporada);
         }
 
         // Buscamos el match exacto de nombre y país
@@ -60,17 +57,14 @@ public class LigaService {
 
             if (nombre.equalsIgnoreCase(nombreLiga) && paisLiga.equalsIgnoreCase(pais)) {
                 int id = ligaObj.getInt("id");
-                System.out.println("✅ ID de liga encontrado: " + id);
+                System.out.println("ID de liga encontrado: " + id);
                 return id;
             }
         }
 
-        throw new RuntimeException("⚠️ No se encontró la liga '" + nombreLiga + "' en " + pais + " para la temporada " + temporada);
+        throw new RuntimeException("No se encontró la liga '" + nombreLiga + "' en " + pais + " para la temporada " + temporada);
     }
 
-    /**
-     * 🔹 Obtiene los equipos participantes de una liga y temporada.
-     */
     public Map<String, Object> obtenerEquiposPorLiga(String nombreLiga, int temporada, String pais) throws Exception {
         int idLiga = obtenerIdLiga(nombreLiga, temporada, pais);
 

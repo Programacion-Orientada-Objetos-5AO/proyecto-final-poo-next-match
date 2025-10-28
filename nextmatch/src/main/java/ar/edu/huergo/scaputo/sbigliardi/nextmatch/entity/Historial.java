@@ -30,4 +30,9 @@ public class Historial {
     private int ganados1;
     private int empatados;
     private int ganados2;
+    public Historial(String equipo1, String equipo2) {
+        this.equipo1 = equipo1;
+        this.equipo2 = equipo2;
+    }
+    
 }

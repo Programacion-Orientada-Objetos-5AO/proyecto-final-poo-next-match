@@ -1,7 +1,5 @@
 package ar.edu.huergo.scaputo.sbigliardi.nextmatch.repository;
 
-import java.util.Optional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

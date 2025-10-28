@@ -20,7 +20,7 @@ public class EquipoController {
     private EquipoService footballAPIService;
 
     /**
-     * GET http://localhost:8080/api/football/equipos?nombre=Barcelona
+     * GET http://localhost:8080/api/equipos?nombre=Barcelona
      */
     @GetMapping("/equipos")
     public ResponseEntity<List<EquipoDTO>> obtenerEquipos(@RequestParam String nombre) {
