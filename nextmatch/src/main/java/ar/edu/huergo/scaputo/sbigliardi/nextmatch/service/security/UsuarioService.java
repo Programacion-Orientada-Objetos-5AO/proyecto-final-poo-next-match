@@ -41,4 +41,8 @@ public class UsuarioService {
         usuario.setRoles(Set.of(rolCliente));
         return usuarioRepository.save(usuario);
     }
+
+    public Usuario actualizar(Long id, Usuario usuario, String password, String verificacionPassword) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

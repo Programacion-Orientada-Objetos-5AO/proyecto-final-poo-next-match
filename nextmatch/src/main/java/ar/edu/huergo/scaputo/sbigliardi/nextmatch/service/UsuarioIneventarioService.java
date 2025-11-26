@@ -48,7 +48,7 @@ public class UsuarioIneventarioService {
             dto.setNombre(usuarioObj.getString("name"));
             dto.setCategoria(usuarioObj.getString("categoria"));
             dto.setPrecio(usuarioObj.getDouble("precio"));
-            dto.setStock(usuarioObj.getInteger("stock"));
+            dto.setStock(usuarioObj.getInt("stock"));
 
             usuarios.add(dto);
         }
