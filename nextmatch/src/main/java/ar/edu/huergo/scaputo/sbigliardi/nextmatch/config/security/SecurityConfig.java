@@ -39,6 +39,25 @@ public class SecurityConfig {
                 .sessionManagement(
                         session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(HttpMethod.POST,
+                        "/api/refugios/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT,
+                        "/api/refugios/**").hasRole("ADMIN")
+
+                        .requestMatchers(HttpMethod.GET,
+                        "/api/refugios/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE,
+                        "/api/refugios/**").hasRole("ADMIN")
+
+                        .requestMatchers(HttpMethod.POST,
+                        "/api/mascotas/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT,
+                        "/api/mascotas/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET,
+                        "/api/mascotas/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE,
+                        "/api/mascotas/**").hasRole("ADMIN")
+
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/equipo/usuarios/registrar").permitAll()
                         .requestMatchers(HttpMethod.POST, "/equipo").hasRole("ADMIN")
@@ -85,7 +104,7 @@ public class SecurityConfig {
 
             ObjectMapper mapper = new ObjectMapper();
             String jsonResponse = mapper.writeValueAsString(java.util.Map.of("type",
-                    "https://http.dev/problems/unauthorized", "title", "No autorizado", "status",
+                    "https://http.dev/problems/unauthorized", "title", "No tipoizado", "status",
                     401, "detail", "Credenciales inválidas o faltantes"));
 
             response.getWriter().write(jsonResponse);

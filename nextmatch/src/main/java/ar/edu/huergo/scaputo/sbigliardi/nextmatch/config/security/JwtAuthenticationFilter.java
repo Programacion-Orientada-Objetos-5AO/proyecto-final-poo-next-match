@@ -30,7 +30,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     // 1) Lee el header Authorization y extrae el token si comienza con "Bearer ".
     // 2) Usa JwtTokenService para obtener el username del token.
     // 3) Si no hay autenticación previa en el contexto y el token es válido,
-    // crea un UsernamePasswordAuthenticationToken con las autoridades del usuario
+    // crea un UsernamePasswordAuthenticationToken con las tipoidades del usuario
     // y lo coloca en el SecurityContext.
     // 4) Continúa la cadena de filtros para que el request llegue al controlador.
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
@@ -52,7 +52,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             // Si hay un username y no hay autenticación previa en el contexto,
             // carga los detalles del usuario desde el UserDetailsService.
             // Si el token es válido, crea un UsernamePasswordAuthenticationToken
-            // con las autoridades del usuario y lo coloca en el SecurityContext.
+            // con las tipoidades del usuario y lo coloca en el SecurityContext.
             // Esto permite que el usuario esté autenticado para el resto del request.
             // Si el token no es válido, no se hace nada y el request sigue sin autenticación.
             if (username != null
