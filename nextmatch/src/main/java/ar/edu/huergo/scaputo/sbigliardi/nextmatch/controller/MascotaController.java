@@ -1,5 +1,16 @@
 package ar.edu.huergo.scaputo.sbigliardi.nextmatch.controller;
 
+import ar.edu.huergo.scaputo.sbigliardi.nextmatch.dto.*;
+import ar.edu.huergo.scaputo.sbigliardi.nextmatch.entity.Mascota;
+import ar.edu.huergo.scaputo.sbigliardi.nextmatch.mapper.MascotaMapper;
+import ar.edu.huergo.scaputo.sbigliardi.nextmatch.service.MascotaService;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/mascotas")
 public class MascotaController {
@@ -33,8 +44,8 @@ public class MascotaController {
             @PathVariable Long id,
             @RequestBody NuevaMascotaDTO dto) {
 
-        Mascota actualizada = service.actualizar(id, mapper.toEntity(dto));
-        return ResponseEntity.ok(mapper.toDTO(actualizada));
+        Mascota actualizado = service.actualizar(id, mapper.toEntity(dto));
+        return ResponseEntity.ok(mapper.toDTO(actualizado));
     }
 
     @DeleteMapping("/{id}")
@@ -43,3 +54,4 @@ public class MascotaController {
         return ResponseEntity.noContent().build();
     }
 }
+
