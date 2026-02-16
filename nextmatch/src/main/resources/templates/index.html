@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title th:text="${titulo} + ' - Next Match'">Next Match</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- HEADER -->
+    <header class="hero">
+      <h1 th:text="${titulo}">Next Match</h1>
+      <p>Explorá estadísticas, historiales y datos de tus equipos favoritos</p>
+    </header>
+
+    <!-- OPCIONES PRINCIPALES -->
+    <main class="options">
+      <div class="card" id="equipo-card" onclick="mostrarSeccion('equipo')">
+        <div class="icon">⚽</div>
+        <h2>Buscar Equipo</h2>
+        <p>Consultá información detallada de un club, su rendimiento y próximos partidos.</p>
+      </div>
+
+      <div class="card" id="historial-card" onclick="mostrarSeccion('historial')">
+        <div class="icon">🏆</div>
+        <h2>Buscar Historial</h2>
+        <p>Descubrí los resultados previos entre dos equipos y su historial cara a cara.</p>
+      </div>
+    </main>
+
+    <!-- SECCIÓN EQUIPO -->
+    <section class="panel" id="equipo">
+      <h2>Datos del Equipo</h2>
+      <label for="team">Equipo:</label>
+      <input type="text" id="team" placeholder="Ej: Boca Juniors" />
+      <button onclick="buscarEquipo()">Buscar</button>
+      <div class="resultados" id="resultados-equipo"></div>
+      <button class="volver" onclick="volver()">⬅ Volver</button>
+    </section>
+
+    <!-- SECCIÓN HISTORIAL -->
+    <section class="panel" id="historial">
+      <h2>Historial Entre Equipos</h2>
+      <label for="team1">Equipo 1:</label>
+      <input type="text" id="team1" placeholder="Ej: River Plate" />
+      <label for="team2">Equipo 2:</label>
+      <input type="text" id="team2" placeholder="Ej: Independiente" />
+      <button onclick="buscarHistorial()">Buscar</button>
+      <div class="resultados" id="resultados-historial"></div>
+      <button class="volver" onclick="volver()">⬅ Volver</button>
+    </section>
+  </div>
+
+  <script>
+    // JS básico para cambiar de vista
+    function mostrarSeccion(id) {
+      document.querySelector('.options').style.display = 'none';
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function volver() {
+      document.querySelectorAll('.panel').forEach(p => p.style.display = 'none');
+      document.querySelector('.options').style.display = 'flex';
+    }
+
+    function buscarEquipo() {
+      // Lógica futura de búsqueda
+      document.getElementById('resultados-equipo').innerText = "🔍 Buscando datos del equipo...";
+    }
+
+    function buscarHistorial() {
+      // Lógica futura de búsqueda
+      document.getElementById('resultados-historial').innerText = "📊 Buscando historial entre equipos...";
+    }
+  </script>
+</body>
+</html>

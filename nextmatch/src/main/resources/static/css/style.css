@@ -1,0 +1,168 @@
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --accent: #38bdf8;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.app-container {
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  color: var(--muted);
+  margin-bottom: 3rem;
+}
+
+/* OPCIONES PRINCIPALES */
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 300px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+}
+
+.card .icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.card h2 {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* PANELES SECUNDARIOS */
+.panel {
+  display: none;
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 5px 25px rgba(56, 189, 248, 0.15);
+  animation: fadeIn 0.4s ease;
+}
+
+.panel h2 {
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  text-align: left;
+  color: var(--muted);
+}
+
+input {
+  width: 100%;
+  margin-top: 0.4rem;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: #334155;
+  color: var(--text);
+}
+
+button {
+  margin-top: 1.2rem;
+  background: var(--accent);
+  color: #0f172a;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #7dd3fc;
+  transform: scale(1.05);
+}
+
+.volver {
+  margin-top: 2rem;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--muted);
+}
+
+.volver:hover {
+  background: var(--muted);
+  color: var(--bg);
+}
+
+.resultados {
+  margin-top: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  min-height: 50px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}
